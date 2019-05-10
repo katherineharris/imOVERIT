@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MvC.Models.FootballSchedule>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+
+<h2>@Model.First().Season Football Sechedule</h2>
+
+@foreach (var item in Model)
+{
+    if (item.IsHomeGame == true)
+    {
+        <div class="card" style="width: 200px; height:255px;background-color:darkred; float:left;">
+            <span class="glyphicon glyphicon-home"> </span>
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">OU vs. @item.Opponent</h5>
+                <p class="card-text">@item.Date.ToLongDateString()</p>
+            </div>
+        </div>
+    }
+    if (item.IsHomeGame == false)
+    {
+        <div class="card" style="width: 200px; height:255px;background-color:black; float:left;">
+            <span class="glyphicon glyphicon-globe"> </span>
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">OU vs. @item.Opponent</h5>
+                <p class="card-text">@item.Date.ToLongDateString()</p>
+            </div>
+        </div>
+    }
+}
+
